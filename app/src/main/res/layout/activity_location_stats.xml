@@ -1,0 +1,520 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".LocationStats"
+    android:id="@+id/scrollView">
+
+        <RelativeLayout
+            android:weightSum="1.0"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_horizontal_margin"
+            android:paddingBottom="@dimen/activity_horizontal_margin">
+
+            <!--<LinearLayout
+                android:weightSum="1.0"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <Button
+                    android:layout_weight=".5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/start_gps"
+                    android:onClick="start_gps"
+                    android:id="@+id/start_gps" />
+
+                <Button
+                    android:layout_weight=".5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/stop_gps"
+                    android:onClick="stop_gps"
+                    android:id="@+id/stop_gps" />
+            </LinearLayout>-->
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:id="@+id/linearLayout">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/activity_horizontal_margin">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="GPS PROVIDER"
+                        android:id="@+id/GPS_PROVIDER_label" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Time"
+                        android:id="@+id/GPS_PROVIDER_time_label"
+                        android:layout_weight=".5" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="##:##:##"
+                        android:id="@+id/GPS_PROVIDER_time_value"
+                        android:layout_weight=".5"
+                        android:gravity="right" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Latitude"
+                        android:id="@+id/GPS_PROVIDER_latitude_label"
+                        android:layout_weight=".5" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="##.####"
+                        android:id="@+id/GPS_PROVIDER_latitude_value"
+                        android:layout_weight=".5"
+                        android:gravity="right" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Longitude"
+                        android:id="@+id/GPS_PROVIDER_longitude_label"
+                        android:layout_weight=".5" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="###.####"
+                        android:id="@+id/GPS_PROVIDER_longitude_value"
+                        android:layout_weight=".5"
+                        android:gravity="right" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Altitude"
+                        android:id="@+id/GPS_PROVIDER_altitude_label"
+                        android:layout_weight=".5" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="#.#"
+                        android:id="@+id/GPS_PROVIDER_altitude_value"
+                        android:layout_weight=".5"
+                        android:gravity="right" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Speed"
+                        android:id="@+id/GPS_PROVIDER_speed_label"
+                        android:layout_weight=".5" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="#.#"
+                        android:id="@+id/GPS_PROVIDER_speed_value"
+                        android:layout_weight=".5"
+                        android:gravity="right" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bearing"
+                        android:id="@+id/GPS_PROVIDER_bearing_label"
+                        android:layout_weight=".5" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="#.#"
+                        android:id="@+id/GPS_PROVIDER_bearing_value"
+                        android:layout_weight=".5"
+                        android:gravity="right" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Accuracy"
+                        android:id="@+id/GPS_PROVIDER_accuracy_label"
+                        android:layout_weight=".5" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="#.#"
+                        android:id="@+id/GPS_PROVIDER_accuracy_value"
+                        android:layout_weight=".5"
+                        android:gravity="right" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/activity_horizontal_margin" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/activity_horizontal_margin">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="NETWORK PROVIDER"
+                        android:id="@+id/NETWORK_PROVIDER_label" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Time"
+                        android:id="@+id/NETWORK_PROVIDER_time_label"
+                        android:layout_weight=".5" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="##:##:##"
+                        android:id="@+id/NETWORK_PROVIDER_time_value"
+                        android:layout_weight=".5"
+                        android:gravity="right" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Latitude"
+                        android:id="@+id/NETWORK_PROVIDER_latitude_label"
+                        android:layout_weight=".5" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="##.####"
+                        android:id="@+id/NETWORK_PROVIDER_latitude_value"
+                        android:layout_weight=".5"
+                        android:gravity="right" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Longitude"
+                        android:id="@+id/NETWORK_PROVIDER_longitude_label"
+                        android:layout_weight=".5" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="###.####"
+                        android:id="@+id/NETWORK_PROVIDER_longitude_value"
+                        android:layout_weight=".5"
+                        android:gravity="right" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Altitude"
+                        android:id="@+id/NETWORK_PROVIDER_altitude_label"
+                        android:layout_weight=".5" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="#.#"
+                        android:id="@+id/NETWORK_PROVIDER_altitude_value"
+                        android:layout_weight=".5"
+                        android:gravity="right" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Speed"
+                        android:id="@+id/NETWORK_PROVIDER_speed_label"
+                        android:layout_weight=".5" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="#.#"
+                        android:id="@+id/NETWORK_PROVIDER_speed_value"
+                        android:layout_weight=".5"
+                        android:gravity="right" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bearing"
+                        android:id="@+id/NETWORK_PROVIDER_bearing_label"
+                        android:layout_weight=".5" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="#.#"
+                        android:id="@+id/NETWORK_PROVIDER_bearing_value"
+                        android:layout_weight=".5"
+                        android:gravity="right" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Accuracy"
+                        android:id="@+id/NETWORK_PROVIDER_accuracy_label"
+                        android:layout_weight=".5" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="#.#"
+                        android:id="@+id/NETWORK_PROVIDER_accuracy_value"
+                        android:layout_weight=".5"
+                        android:gravity="right" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/activity_horizontal_margin" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/activity_horizontal_margin">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PASSIVE PROVIDER"
+                        android:id="@+id/PASSIVE_PROVIDER_label" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Time"
+                        android:id="@+id/PASSIVE_PROVIDER_time_label"
+                        android:layout_weight=".5" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="##:##:##"
+                        android:id="@+id/PASSIVE_PROVIDER_time_value"
+                        android:layout_weight=".5"
+                        android:gravity="right" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Latitude"
+                        android:id="@+id/PASSIVE_PROVIDER_latitude_label"
+                        android:layout_weight=".5" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="##.####"
+                        android:id="@+id/PASSIVE_PROVIDER_latitude_value"
+                        android:layout_weight=".5"
+                        android:gravity="right" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Longitude"
+                        android:id="@+id/PASSIVE_PROVIDER_longitude_label"
+                        android:layout_weight=".5" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="###.####"
+                        android:id="@+id/PASSIVE_PROVIDER_longitude_value"
+                        android:layout_weight=".5"
+                        android:gravity="right" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Altitude"
+                        android:id="@+id/PASSIVE_PROVIDER_altitude_label"
+                        android:layout_weight=".5" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="#.#"
+                        android:id="@+id/PASSIVE_PROVIDER_altitude_value"
+                        android:layout_weight=".5"
+                        android:gravity="right" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Speed"
+                        android:id="@+id/PASSIVE_PROVIDER_speed_label"
+                        android:layout_weight=".5" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="#.#"
+                        android:id="@+id/PASSIVE_PROVIDER_speed_value"
+                        android:layout_weight=".5"
+                        android:gravity="right" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bearing"
+                        android:id="@+id/PASSIVE_PROVIDER_bearing_label"
+                        android:layout_weight=".5" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="#.#"
+                        android:id="@+id/PASSIVE_PROVIDER_bearing_value"
+                        android:layout_weight=".5"
+                        android:gravity="right" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Accuracy"
+                        android:id="@+id/PASSIVE_PROVIDER_accuracy_label"
+                        android:layout_weight=".5" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="#.#"
+                        android:id="@+id/PASSIVE_PROVIDER_accuracy_value"
+                        android:layout_weight=".5"
+                        android:gravity="right" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" >
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/activity_horizontal_margin" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Small Text"
+                    android:id="@+id/GPS_PROVIDER_NMEA_value"
+                    android:editable="true" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
