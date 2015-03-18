@@ -1,20 +1,23 @@
 package uk.co.leifgehrmann.locationtest;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import android.location.GpsStatus;
-import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
-import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.Bundle;
+import android.os.Handler;
+import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class LocationStats extends ActionBarActivity {
 
@@ -30,10 +33,58 @@ public class LocationStats extends ActionBarActivity {
 
     SimpleDateFormat df;
 
+    WebView mapDisplay;
+    WebSettings webSettings;
+
+    String locationGPS;
+    String locationNetwork;
+
+    Handler mHandler;
+    Runnable mHandlerTask;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_stats);
+
+        // Initialises the web view
+        mapDisplay = (WebView) findViewById(R.id.webView);
+        WebSettings webSettings = mapDisplay.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        mapDisplay.addJavascriptInterface(new JSInterface(), "AndroidErrorReporter");
+        mapDisplay.loadUrl("http://gps.leifgehrmann.co.uk/map/");
+
+        // Updates the map interface every 10 seconds.
+        /*mHandler = new Handler();
+        mHandlerTask = new Runnable(){
+            @Override
+            public void run(){
+                String json = "[";
+                if(locationGPS!=null){
+                    json+=locationGPS;
+                }
+                if(locationGPS!=null&&locationNetwork!=null){
+                    json+=",";
+                }
+                if(locationNetwork!=null){
+                    json+=locationNetwork;
+                }
+                json+="]";
+
+                String url = null;
+                Log.d("URL","Hello...");
+                try {
+                    url = URLEncoder.encode(json, "UTF-8");
+                    Log.d("URL",url);
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+
+                mHandler.postDelayed(mHandlerTask, 1000*4);
+            }
+        };
+
+        mHandlerTask.run();*/
 
         df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
         locationManagerNetwork = (LocationManager) this.getSystemService(LocationStats.LOCATION_SERVICE);
@@ -147,7 +198,7 @@ public class LocationStats extends ActionBarActivity {
             TextView bearing_value   = (TextView)findViewById(R.id.GPS_PROVIDER_bearing_value);
             TextView accuracy_value   = (TextView)findViewById(R.id.GPS_PROVIDER_accuracy_value);
 
-            time_value.setText(time.toString());
+            time_value.setText(time);
             latitude_value.setText(latitude.toString());
             longitude_value.setText(longitude.toString());
             altitude_value.setText(altitude.toString());
@@ -155,8 +206,10 @@ public class LocationStats extends ActionBarActivity {
             bearing_value.setText(bearing.toString());
             accuracy_value.setText(accuracy.toString());
 
+            callJavaScript("addCircle","GPS",longitude,latitude,accuracy,"#F00");
+
         } else {
-            Toast.makeText(getApplicationContext(), "No GPS Location not found :(", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "No GPS Location found :(", Toast.LENGTH_LONG).show();
         }
     }
     public void updateUserInterfaceNetwork(Location location){
@@ -178,7 +231,7 @@ public class LocationStats extends ActionBarActivity {
             TextView bearing_value   = (TextView)findViewById(R.id.NETWORK_PROVIDER_bearing_value);
             TextView accuracy_value   = (TextView)findViewById(R.id.NETWORK_PROVIDER_accuracy_value);
 
-            time_value.setText(time.toString());
+            time_value.setText(time);
             latitude_value.setText(latitude.toString());
             longitude_value.setText(longitude.toString());
             altitude_value.setText(altitude.toString());
@@ -186,8 +239,10 @@ public class LocationStats extends ActionBarActivity {
             bearing_value.setText(bearing.toString());
             accuracy_value.setText(accuracy.toString());
 
+            callJavaScript("addCircle","Network",longitude,latitude,accuracy,"#0F0");
+
         } else {
-            Toast.makeText(getApplicationContext(), "No Network Location not found :(", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "No Network Location found :(", Toast.LENGTH_LONG).show();
         }
     }
     public void updateUserInterfacePassive(Location location){
@@ -209,7 +264,7 @@ public class LocationStats extends ActionBarActivity {
             TextView bearing_value   = (TextView)findViewById(R.id.PASSIVE_PROVIDER_bearing_value);
             TextView accuracy_value   = (TextView)findViewById(R.id.PASSIVE_PROVIDER_accuracy_value);
 
-            time_value.setText(time.toString());
+            time_value.setText(time);
             latitude_value.setText(latitude.toString());
             longitude_value.setText(longitude.toString());
             altitude_value.setText(altitude.toString());
@@ -218,12 +273,39 @@ public class LocationStats extends ActionBarActivity {
             accuracy_value.setText(accuracy.toString());
 
         } else {
-            Toast.makeText(getApplicationContext(), "No Passive Location not found :(", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "No Passive Location found :(", Toast.LENGTH_LONG).show();
         }
     }
 
     public void updateUserInterfaceGPSNMEA(String message){
-            TextView NMEA_value   = (TextView)findViewById(R.id.GPS_PROVIDER_NMEA_value);
-            NMEA_value.setText(message);
+        int max = 1000;
+        TextView NMEA_value   = (TextView)findViewById(R.id.GPS_PROVIDER_NMEA_value);
+        String text = NMEA_value.getText().toString();
+        text+="\n"+message;
+        text = text.substring(Math.max(0,text.length()-max), text.length());
+        NMEA_value.setText(text);
+    }
+
+    private void callJavaScript(String methodName, Object...params){
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("javascript:try{");
+        stringBuilder.append(methodName);
+        stringBuilder.append("(");
+        boolean start = true;
+        for (Object param : params) {
+            if(!start)
+                stringBuilder.append(",");
+            if(param instanceof String){
+                stringBuilder.append("'");
+                stringBuilder.append(param);
+                stringBuilder.append("'");
+            } else if(param instanceof Integer || param instanceof Float || param instanceof Double) {
+                stringBuilder.append(param);
+            }
+            start = false;
+        }
+        stringBuilder.append(")}catch(error){Android.onError(error.message);}");
+        Log.d("data",stringBuilder.toString());
+        mapDisplay.loadUrl(stringBuilder.toString());
     }
 }
