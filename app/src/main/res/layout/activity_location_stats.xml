@@ -1,4 +1,5 @@
-<uk.co.leifgehrmann.locationtest.ScrollViewWeb xmlns:android="http://schemas.android.com/apk/res/android"
+<uk.co.leifgehrmann.locationtest.ScrollViewWeb
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -66,13 +67,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Time"
+                        android:text="@string/TEXT_time"
                         android:id="@+id/GPS_PROVIDER_time_label"
                         android:layout_weight=".5" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="##:##:##"
+                        android:text="@string/TEXT_time_val"
                         android:id="@+id/GPS_PROVIDER_time_value"
                         android:layout_weight=".5"
                         android:gravity="right" />
@@ -85,13 +86,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Latitude"
+                        android:text="@string/TEXT_latitude"
                         android:id="@+id/GPS_PROVIDER_latitude_label"
                         android:layout_weight=".5" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="##.####"
+                        android:text="@string/TEXT_dd.dddd_val"
                         android:id="@+id/GPS_PROVIDER_latitude_value"
                         android:layout_weight=".5"
                         android:gravity="right" />
@@ -104,13 +105,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Longitude"
+                        android:text="@string/TEXT_longitude"
                         android:id="@+id/GPS_PROVIDER_longitude_label"
                         android:layout_weight=".5" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="###.####"
+                        android:text="@string/TEXT_ddd.dddd_val"
                         android:id="@+id/GPS_PROVIDER_longitude_value"
                         android:layout_weight=".5"
                         android:gravity="right" />
@@ -123,13 +124,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Altitude"
+                        android:text="@string/TEXT_altitude"
                         android:id="@+id/GPS_PROVIDER_altitude_label"
                         android:layout_weight=".5" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="#.#"
+                        android:text="@string/TEXT_d.d_val"
                         android:id="@+id/GPS_PROVIDER_altitude_value"
                         android:layout_weight=".5"
                         android:gravity="right" />
@@ -142,13 +143,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Speed"
+                        android:text="@string/TEXT_speed"
                         android:id="@+id/GPS_PROVIDER_speed_label"
                         android:layout_weight=".5" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="#.#"
+                        android:text="@string/TEXT_d.d_val"
                         android:id="@+id/GPS_PROVIDER_speed_value"
                         android:layout_weight=".5"
                         android:gravity="right" />
@@ -161,13 +162,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Bearing"
+                        android:text="@string/TEXT_bearing"
                         android:id="@+id/GPS_PROVIDER_bearing_label"
                         android:layout_weight=".5" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="#.#"
+                        android:text="@string/TEXT_d.d_val"
                         android:id="@+id/GPS_PROVIDER_bearing_value"
                         android:layout_weight=".5"
                         android:gravity="right" />
@@ -180,13 +181,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Accuracy"
+                        android:text="@string/TEXT_accuracy"
                         android:id="@+id/GPS_PROVIDER_accuracy_label"
                         android:layout_weight=".5" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="#.#"
+                        android:text="@string/TEXT_d.d_val"
                         android:id="@+id/GPS_PROVIDER_accuracy_value"
                         android:layout_weight=".5"
                         android:gravity="right" />
@@ -218,13 +219,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Time"
+                        android:text="@string/TEXT_time"
                         android:id="@+id/NETWORK_PROVIDER_time_label"
                         android:layout_weight=".5" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="##:##:##"
+                        android:text="@string/TEXT_time_val"
                         android:id="@+id/NETWORK_PROVIDER_time_value"
                         android:layout_weight=".5"
                         android:gravity="right" />
@@ -237,13 +238,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Latitude"
+                        android:text="@string/TEXT_latitude"
                         android:id="@+id/NETWORK_PROVIDER_latitude_label"
                         android:layout_weight=".5" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="##.####"
+                        android:text="@string/TEXT_dd.dddd_val"
                         android:id="@+id/NETWORK_PROVIDER_latitude_value"
                         android:layout_weight=".5"
                         android:gravity="right" />
@@ -256,13 +257,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Longitude"
+                        android:text="@string/TEXT_longitude"
                         android:id="@+id/NETWORK_PROVIDER_longitude_label"
                         android:layout_weight=".5" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="###.####"
+                        android:text="@string/TEXT_ddd.dddd_val"
                         android:id="@+id/NETWORK_PROVIDER_longitude_value"
                         android:layout_weight=".5"
                         android:gravity="right" />
@@ -275,13 +276,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Altitude"
+                        android:text="@string/TEXT_altitude"
                         android:id="@+id/NETWORK_PROVIDER_altitude_label"
                         android:layout_weight=".5" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="#.#"
+                        android:text="@string/TEXT_d.d_val"
                         android:id="@+id/NETWORK_PROVIDER_altitude_value"
                         android:layout_weight=".5"
                         android:gravity="right" />
@@ -294,13 +295,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Speed"
+                        android:text="@string/TEXT_speed"
                         android:id="@+id/NETWORK_PROVIDER_speed_label"
                         android:layout_weight=".5" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="#.#"
+                        android:text="@string/TEXT_d.d_val"
                         android:id="@+id/NETWORK_PROVIDER_speed_value"
                         android:layout_weight=".5"
                         android:gravity="right" />
@@ -313,13 +314,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Bearing"
+                        android:text="@string/TEXT_bearing"
                         android:id="@+id/NETWORK_PROVIDER_bearing_label"
                         android:layout_weight=".5" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="#.#"
+                        android:text="@string/TEXT_d.d_val"
                         android:id="@+id/NETWORK_PROVIDER_bearing_value"
                         android:layout_weight=".5"
                         android:gravity="right" />
@@ -332,13 +333,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Accuracy"
+                        android:text="@string/TEXT_accuracy"
                         android:id="@+id/NETWORK_PROVIDER_accuracy_label"
                         android:layout_weight=".5" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="#.#"
+                        android:text="@string/TEXT_d.d_val"
                         android:id="@+id/NETWORK_PROVIDER_accuracy_value"
                         android:layout_weight=".5"
                         android:gravity="right" />
@@ -370,13 +371,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Time"
+                        android:text="@string/TEXT_time"
                         android:id="@+id/PASSIVE_PROVIDER_time_label"
                         android:layout_weight=".5" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="##:##:##"
+                        android:text="@string/TEXT_time_val"
                         android:id="@+id/PASSIVE_PROVIDER_time_value"
                         android:layout_weight=".5"
                         android:gravity="right" />
@@ -389,13 +390,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Latitude"
+                        android:text="@string/TEXT_latitude"
                         android:id="@+id/PASSIVE_PROVIDER_latitude_label"
                         android:layout_weight=".5" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="##.####"
+                        android:text="@string/TEXT_dd.dddd_val"
                         android:id="@+id/PASSIVE_PROVIDER_latitude_value"
                         android:layout_weight=".5"
                         android:gravity="right" />
@@ -408,13 +409,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Longitude"
+                        android:text="@string/TEXT_longitude"
                         android:id="@+id/PASSIVE_PROVIDER_longitude_label"
                         android:layout_weight=".5" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="###.####"
+                        android:text="@string/TEXT_ddd.dddd_val"
                         android:id="@+id/PASSIVE_PROVIDER_longitude_value"
                         android:layout_weight=".5"
                         android:gravity="right" />
@@ -427,13 +428,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Altitude"
+                        android:text="@string/TEXT_altitude"
                         android:id="@+id/PASSIVE_PROVIDER_altitude_label"
                         android:layout_weight=".5" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="#.#"
+                        android:text="@string/TEXT_d.d_val"
                         android:id="@+id/PASSIVE_PROVIDER_altitude_value"
                         android:layout_weight=".5"
                         android:gravity="right" />
@@ -446,13 +447,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Speed"
+                        android:text="@string/TEXT_speed"
                         android:id="@+id/PASSIVE_PROVIDER_speed_label"
                         android:layout_weight=".5" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="#.#"
+                        android:text="@string/TEXT_speed_val"
                         android:id="@+id/PASSIVE_PROVIDER_speed_value"
                         android:layout_weight=".5"
                         android:gravity="right" />
@@ -465,13 +466,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Bearing"
+                        android:text="@string/TEXT_bearing"
                         android:id="@+id/PASSIVE_PROVIDER_bearing_label"
                         android:layout_weight=".5" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="#.#"
+                        android:text="@string/TEXT_d.d_val"
                         android:id="@+id/PASSIVE_PROVIDER_bearing_value"
                         android:layout_weight=".5"
                         android:gravity="right" />
@@ -485,13 +486,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Accuracy"
+                        android:text="@string/TEXT_accuracy"
                         android:id="@+id/PASSIVE_PROVIDER_accuracy_label"
                         android:layout_weight=".5" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="#.#"
+                        android:text="@string/TEXT_d.d_val"
                         android:id="@+id/PASSIVE_PROVIDER_accuracy_value"
                         android:layout_weight=".5"
                         android:gravity="right" />
@@ -522,7 +523,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Raw NMEA data"
+                        android:text="@string/TEXT_raw_nmea_data"
                         android:id="@+id/textView" />
                 </LinearLayout>
 
@@ -530,7 +531,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="400dp"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Small Text"
+                    android:text=""
                     android:id="@+id/GPS_PROVIDER_NMEA_value" />
 
             </LinearLayout>

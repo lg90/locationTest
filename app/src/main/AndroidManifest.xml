@@ -20,8 +20,6 @@
         </activity>
     </application>
 
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <!-- We may also want to get network based location -->
-    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- INSERT PERMISSIONS HERE-->
 
 </manifest>
