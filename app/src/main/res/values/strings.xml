@@ -9,5 +9,18 @@
 
     <string name="start_gps">Start GPS</string>
     <string name="stop_gps">Stop GPS</string>
+    <string name="TEXT_speed">Speed</string>
+    <string name="TEXT_speed_val">#.#</string>
+    <string name="TEXT_bearing">Bearing</string>
+    <string name="TEXT_accuracy">Accuracy</string>
+    <string name="TEXT_altitude">Altitude</string>
+    <string name="TEXT_longitude">Longitude</string>
+    <string name="TEXT_latitude">Latitude</string>
+    <string name="TEXT_time">Time</string>
+    <string name="TEXT_time_val">##:##:##</string>
+    <string name="TEXT_d.d_val">#.#</string>
+    <string name="TEXT_ddd.dddd_val">###.####</string>
+    <string name="TEXT_raw_nmea_data">Raw NMEA data</string>
+    <string name="TEXT_dd.dddd_val">##.####</string>
 
 </resources>
